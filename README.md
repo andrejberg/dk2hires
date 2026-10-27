@@ -50,6 +50,7 @@ nicht enthalten.
 
 ## Getestet
 
+- Lutris mit umu und GE-Proton11-11 in 3840×2160, Installation über `--lutris`: DLL lädt, alle vier Teile aktiv; Levelstart noch nicht geprüft.
 - Heroic 2.22.1 mit GE-Proton11-1 auf einer NVIDIA-Grafikkarte in 3840×2560 und 3840×2160, mit Ton.
 - Wine 11.16 mit Software-Rendering in 1024×768, 1920×1080, 2560×1440, 3840×2160 und 3840×2560,
   dazu 60 Minuten Skirmish in 3840×2160 und 30 Minuten in 3840×2560 ohne Fehler.
@@ -73,6 +74,13 @@ Als Auflösung passt die native Auflösung des Bildschirms. Ohne weitere Angaben
 Standardpfade von Heroic, `~/Games/Heroic/Dungeon Keeper 2` und
 `~/Games/Heroic/Prefixes/default/Dungeon Keeper 2`. Liegt das Spiel woanders, gibt
 `--game-dir DIR` den Spielordner an und `--prefix DIR` den Ordner, in dem `user.reg` liegt.
+
+Für die GOG-Fassung unter Lutris (Runner Wine mit umu/GE-Proton) reicht `--lutris DIR` mit dem
+Prefix des Spiels; der Spielordner ist dann `DIR/drive_c/GOG Games/Dungeon Keeper 2`:
+
+```bash
+./install.sh --res 3840x2160 --lutris ~/Games/gog/dungeon-keeper-2
+```
 
 Das Skript
 

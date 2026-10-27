@@ -2,7 +2,10 @@
 # install.sh - dk2hires (DK2-Hochaufloesungs-Fix) in eine Wine-/Proton-Installation einspielen.
 # Ablauf und Rueckbau: README.md.
 #
-#   ./install.sh --res BREITExHOEHE [--game-dir DIR] [--prefix DIR] [--state-dir DIR] [--dry-run]
+#   ./install.sh --res BREITExHOEHE [--game-dir DIR] [--prefix DIR] [--lutris DIR] [--state-dir DIR] [--dry-run]
+#
+# --lutris DIR: GOG-Fassung ueber Lutris (umu/Proton); DIR ist der Wine-Prefix des Spiels,
+# z. B. ~/Games/gog/dungeon-keeper-2. Spielordner ist dann DIR/drive_c/GOG Games/Dungeon Keeper 2.
 #
 # Fuegt im Spielordner zwei Dateien hinzu (dsound.dll, dk2hires.ini) und setzt im Wine-Prefix
 # (Textdatei user.reg, ohne Wine zu starten):
@@ -23,6 +26,7 @@ while [ $# -gt 0 ]; do
     --res) RES="$2"; shift 2;;
     --game-dir) GAME_DIR="$2"; shift 2;;
     --prefix) PREFIX="$2"; shift 2;;
+    --lutris) PREFIX="${2%/}"; GAME_DIR="$PREFIX/drive_c/GOG Games/Dungeon Keeper 2"; shift 2;;
     --state-dir) STATE_DIR="$2"; shift 2;;
     --dry-run) DRY=1; shift;;
     --no-process-check) NOPROC=1; shift;;   # nur fuer Tests gegen Kopien, nie fuer die echte Installation
